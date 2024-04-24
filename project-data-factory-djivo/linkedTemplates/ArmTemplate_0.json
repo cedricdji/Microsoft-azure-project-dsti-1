@@ -229,6 +229,38 @@
 				"[concat(variables('factoryId'), '/datasets/empcsv')]",
 				"[concat(variables('factoryId'), '/datasets/AzureSqlTable')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Minutely')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Test minute triggers",
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "pipeline1",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 1,
+						"startTime": "2024-04-24T14:19:00",
+						"endTime": "2024-04-24T14:21:00",
+						"timeZone": "Romance Standard Time"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pipeline1')]"
+			]
 		}
 	]
 }
