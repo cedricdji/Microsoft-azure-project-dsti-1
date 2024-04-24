@@ -1,0 +1,9 @@
+{
+	"name": "project-data-factory-djivo",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "10c02b43-bf02-42fd-ae9c-417a5866f2a1",
+		"tenantId": "e5d15069-41a2-48be-a3f3-d7f52db16425"
+	}
+}
